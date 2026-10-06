@@ -1,0 +1,19 @@
+<article class="aufmacher">
+  <a class="aufmacher-link" href="{{ .RelPermalink }}">
+    <span class="aufmacher-bild" aria-hidden="true">
+      {{- with .Params.image }}{{ with $.Resources.Get . }}
+      {{- $s := .Process "fill 640x360 webp q82" }}
+      {{- $l := .Process "fill 1280x720 webp q82" }}
+      <img src="{{ $l.RelPermalink }}" srcset="{{ $s.RelPermalink }} 640w, {{ $l.RelPermalink }} 1280w" sizes="(min-width: 900px) 48vw, 100vw" alt="" width="1280" height="720">
+      {{- end }}{{ else }}
+      {{ partial "vendor-logo.html" . }}
+      {{- end }}
+    </span>
+    <span class="aufmacher-text">
+      {{ partial "meta.html" . }}
+      <span class="aufmacher-titel">{{ .Title }}</span>
+      <span class="aufmacher-teaser">{{ .Summary | plainify }}</span>
+      <span class="weiter">{{ T "readMore" }} →</span>
+    </span>
+  </a>
+</article>

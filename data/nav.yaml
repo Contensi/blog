@@ -58,27 +58,29 @@ en:
         - { label: "Portfolio Overview", url: "/portfolio-en" }
         - { label: "Big Data & AI", url: "/portfolio-en#big-data-ki" }
         - { label: "Cloud", url: "/cloud-en" }
+        - { label: "Cloud Exit Strategy", url: "/cloud-exit-strategie" }
         - { label: "Container Platform", url: "/portfolio-en#container-plattform" }
         - { label: "IT Service Management", url: "/portfolio-en#it-service-management" }
         - { label: "Managed Services", url: "/managed-services-en" }
         - { label: "Modern Workplace", url: "/portfolio-en#modern-workplace" }
         - { label: "Private AI", url: "/private-ai-en" }
-        - { label: "Process Orchestration", url: "/portfolio-en#prozess-orchestrierung" }
         - { label: "Proxmox", url: "/proxmox-en" }
+        - { label: "Process Orchestration", url: "/portfolio-en#prozess-orchestrierung" }
         - { label: "Storage", url: "/storage-en" }
     - label: "Company"
       current: true
       items:
         - { label: "Blog", blog: true }
         - { label: "Careers", url: "/karriere-en" }
+        - { label: "Our Team", url: "/team-en" }
         - { label: "Our Clients", url: "/kunden-en" }
         - { label: "Our Partners", url: "/partner-en" }
-        - { label: "Our Team", url: "/team-en" }
     - label: "Legal"
       items:
-        - { label: "Legal Notice", url: "/impressum-en" }
-        - { label: "Privacy Policy", url: "/datenschutz-en" }
         - { label: "Terms & Conditions", url: "/agb-en" }
+        - { label: "Privacy Policy", url: "/datenschutz-en" }
+        - { label: "Legal Notice", url: "/impressum-en" }
+        - { label: "AI Transparency", url: "/kitransparenz" }
   footer:
     linkedinLabel: "Contensi on LinkedIn"
     slackLabel: "Request access to our Slack channel"
@@ -87,5 +89,6 @@ en:
       - { label: "Privacy Policy", url: "/datenschutz-en" }
       - { label: "Legal Notice", url: "/impressum-en" }
       - { label: "Terms & Conditions", url: "/agb-en" }
+      - { label: "AI Transparency", url: "/kitransparenz" }
     claim: "IT. People. Solutions."
     legal: "All product and company names mentioned are trademarks or registered trademarks of their respective owners and are used here for descriptive purposes only. No business relationship is implied unless explicitly stated."

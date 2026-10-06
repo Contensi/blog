@@ -1,0 +1,15 @@
+<ol class="beitragsliste">
+  {{- range . }}
+  <li>
+    <a class="eintrag" href="{{ .RelPermalink }}">
+      <time class="eintrag-datum" datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006-01-02" }}</time>
+      <span class="eintrag-text">
+        <span class="eintrag-titel">{{ .Title }}</span>
+        <span class="eintrag-teaser">{{ .Summary | plainify }}</span>
+        <span class="eintrag-autor">{{ .Params.author }}</span>
+      </span>
+      {{ partial "vendor-logo.html" . }}
+    </a>
+  </li>
+  {{- end }}
+</ol>

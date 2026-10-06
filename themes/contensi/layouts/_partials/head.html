@@ -1,5 +1,4 @@
 {{- $canonical := .Permalink -}}
-{{- if .IsHome -}}{{ with partial "latest.html" . }}{{ $canonical = .Permalink }}{{ end }}{{- end -}}
 {{- $title := cond .IsHome site.Title (printf "%s | Contensi" .Title) -}}
 {{- $description := or .Description site.Params.description -}}
 <meta charset="utf-8">

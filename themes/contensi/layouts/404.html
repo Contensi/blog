@@ -1,7 +1,7 @@
 {{ define "main" }}
 <article class="beitrag">
   <header class="beitrag-kopf">
-    <p class="kennung"><span class="led" aria-hidden="true"></span>404</p>
+    <p class="kennung">404</p>
     <h1>{{ if eq site.Language.Lang "de" }}Diese Seite gibt es nicht.{{ else }}This page does not exist.{{ end }}</h1>
   </header>
   <p><a class="btn" href="{{ site.Home.RelPermalink }}">{{ T "backToBlog" }}</a></p>

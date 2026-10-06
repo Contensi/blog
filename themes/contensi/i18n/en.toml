@@ -1,7 +1,5 @@
-latest = "Latest post"
 morePosts = "More posts"
 readMore = "Read more"
-readingTime = "{{ .Count }} min"
 contents = "Contents"
 sources = "Sources"
 backToBlog = "Back to the blog"

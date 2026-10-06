@@ -13,6 +13,7 @@ disableKinds = ["taxonomy", "term"]
   [languages.de.params]
     mainSite = "/"
     description = "Fachbeiträge zu Cloud, Kubernetes, Proxmox, digitaler Souveränität und Regulierung."
+    intro = "Einordnungen aus der Projektpraxis: Cloud, Kubernetes, Proxmox, digitale Souveränität und Regulierung."
 
 [languages.en]
   label = "EN"
@@ -22,6 +23,7 @@ disableKinds = ["taxonomy", "term"]
   [languages.en.params]
     mainSite = "/index-en"
     description = "Articles on cloud, Kubernetes, Proxmox, digital sovereignty and regulation."
+    intro = "Insights from our project work: cloud, Kubernetes, Proxmox, digital sovereignty and regulation."
 
 [outputs]
   home = ["html", "rss", "json"]

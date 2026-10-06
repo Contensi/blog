@@ -1,0 +1,3 @@
+{{- with .Params.logo }}{{ with $.Resources.Get . }}
+<span class="hersteller"><img src="{{ .RelPermalink }}" alt="" loading="lazy"></span>
+{{- end }}{{ end -}}

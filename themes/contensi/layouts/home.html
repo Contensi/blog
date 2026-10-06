@@ -1,12 +1,16 @@
 {{ define "main" }}
 {{- $posts := (where site.RegularPages "Section" "posts").ByDate.Reverse -}}
+<header class="blog-kopf">
+  <h1>Blog</h1>
+  <p>{{ site.Params.intro }}</p>
+</header>
 {{- with index $posts 0 }}
-{{ partial "article.html" (dict "page" . "featured" true) }}
+{{ partial "feature.html" . }}
 {{- end }}
 {{- with after 1 $posts }}
 <section class="archiv" aria-labelledby="archivTitel">
   <h2 class="archiv-titel" id="archivTitel">{{ T "morePosts" }}</h2>
-  {{ partial "rack.html" . }}
+  {{ partial "post-list.html" . }}
 </section>
 {{- end }}
 {{ end }}

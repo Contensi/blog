@@ -1,5 +1,5 @@
 {{ define "main" }}
-{{ partial "article.html" (dict "page" . "featured" false) }}
+{{ partial "article.html" . }}
 <nav class="beitrag-nav">
   <a class="zurueck" href="{{ site.Home.RelPermalink }}">← {{ T "backToBlog" }}</a>
   <span class="blaettern">
