@@ -608,15 +608,26 @@ main.blog .eintrag {
   text-decoration: underline;
   text-underline-offset: 0.25em;
 }
-.blaettern {
-  display: flex;
-  gap: 1.5rem;
+.beitrag-nav a[rel="prev"] {
+  margin-left: auto;
 }
-.blaettern a[rel="prev"]::after {
+.beitrag-nav a[rel="prev"]::after {
   content: " →";
 }
-.blaettern a[rel="next"]::before {
+.beitrag-nav a[rel="next"]::before {
   content: "← ";
+}
+
+.beitrag-text .zurueck {
+  margin: 2.5rem 0 0;
+  font-family: var(--mono);
+  font-size: 0.875rem;
+}
+.beitrag-text .zurueck a {
+  text-decoration: none;
+}
+.beitrag-text .zurueck a:hover {
+  text-decoration: underline;
 }
 
 .dlg-hinweis {

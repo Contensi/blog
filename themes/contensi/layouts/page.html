@@ -1,10 +1,9 @@
 {{ define "main" }}
 {{ partial "article.html" . }}
+{{- if or .NextInSection .PrevInSection }}
 <nav class="beitrag-nav">
-  <a class="zurueck" href="{{ site.Home.RelPermalink }}">← {{ T "backToBlog" }}</a>
-  <span class="blaettern">
-    {{- with .NextInSection }}<a href="{{ .RelPermalink }}" rel="next">{{ T "newerPost" }}</a>{{ end }}
-    {{- with .PrevInSection }}<a href="{{ .RelPermalink }}" rel="prev">{{ T "olderPost" }}</a>{{ end }}
-  </span>
+  {{- with .NextInSection }}<a href="{{ .RelPermalink }}" rel="next">{{ T "newerPost" }}</a>{{ end }}
+  {{- with .PrevInSection }}<a href="{{ .RelPermalink }}" rel="prev">{{ T "olderPost" }}</a>{{ end }}
 </nav>
+{{- end }}
 {{ end }}
