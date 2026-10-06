@@ -10,7 +10,7 @@ from pathlib import Path
 SITE = "https://contensi.com/"
 ROOT = Path(__file__).resolve().parent.parent
 POSTS = ROOT / "content" / "posts"
-TEAM = ROOT / "static" / "img" / "team"
+TEAM = ROOT / "assets" / "img" / "team"
 UA = {"User-Agent": "contensi-blog-migrate/1.0"}
 
 MAIN_SITE_PAGE = re.compile(r'href="(?!https?:|mailto:|tel:|#|/)([a-z0-9-]+)\.html(#[^"]*)?"')

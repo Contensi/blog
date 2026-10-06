@@ -35,4 +35,4 @@
 {{- end }}
 {{- $css := slice (resources.Get "css/site-chrome.css") (resources.Get "css/blog.css") | resources.Concat "css/blog.css" | minify | fingerprint }}
 <link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}">
-<link rel="icon" href="{{ "img/contensi-logo.png" | relURL }}">
+<link rel="icon" href="{{ (partial "logo.html" .).RelPermalink }}">

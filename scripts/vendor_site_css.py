@@ -15,7 +15,7 @@ ROOT = Path(__file__).resolve().parent.parent
 THEME = ROOT / "themes" / "contensi"
 CSS_OUT = THEME / "assets" / "css" / "site-chrome.css"
 FONT_DIR = THEME / "static" / "fonts"
-IMG_DIR = THEME / "static" / "img"
+IMG_DIR = THEME / "assets" / "img"
 FONTS = ["comfortaa.woff2", "work-sans.woff2"]
 IMAGES = ["contensi-logo.png"]
 

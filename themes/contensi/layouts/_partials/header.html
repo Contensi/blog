@@ -3,7 +3,7 @@
 <header class="site" id="kopf">
   <div class="nav-bar">
     <a href="{{ $nav.home.url }}" class="logo-chip" aria-label="{{ $nav.logoLabel }}">
-      <img class="logo" src="{{ "img/contensi-logo.png" | relURL }}" alt="Contensi" width="300" height="51">
+      <img class="logo" src="{{ (partial "logo.html" .).RelPermalink }}" alt="Contensi" width="300" height="51">
     </a>
     <nav class="nav-links" id="navLinks" aria-label="{{ $nav.navLabel }}">
       <a href="{{ $nav.home.url }}">{{ $nav.home.label }}</a>

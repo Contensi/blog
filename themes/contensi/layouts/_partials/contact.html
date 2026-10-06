@@ -9,7 +9,10 @@
   </div>
   <figure class="kontakt-person">
     {{- with .photo }}
-    <img src="{{ . | relURL }}" alt="" width="96" height="96" loading="lazy">
+    {{- $photo := resources.Get . }}
+    {{- $x1 := $photo.Process "fill 96x96 webp q82 Top" }}
+    {{- $x2 := $photo.Process "fill 192x192 webp q82 Top" }}
+    <img src="{{ $x2.RelPermalink }}" srcset="{{ $x1.RelPermalink }} 1x, {{ $x2.RelPermalink }} 2x" alt="" width="96" height="96" loading="lazy">
     {{- else }}
     <span class="monogramm" aria-hidden="true">{{ range split .name " " }}{{ substr . 0 1 }}{{ end }}</span>
     {{- end }}
