@@ -1,0 +1,41 @@
+baseURL = "https://contensi.com/blog/"
+theme = "contensi"
+defaultContentLanguage = "de"
+defaultContentLanguageInSubdir = false
+enableRobotsTXT = false
+disableKinds = ["taxonomy", "term"]
+
+[languages.de]
+  label = "DE"
+  locale = "de-DE"
+  title = "Blog | Contensi"
+  weight = 1
+  [languages.de.params]
+    mainSite = "/"
+    description = "Fachbeiträge zu Cloud, Kubernetes, Proxmox, digitaler Souveränität und Regulierung."
+
+[languages.en]
+  label = "EN"
+  locale = "en-GB"
+  title = "Blog | Contensi"
+  weight = 2
+  [languages.en.params]
+    mainSite = "/index-en"
+    description = "Articles on cloud, Kubernetes, Proxmox, digital sovereignty and regulation."
+
+[outputs]
+  home = ["html", "rss", "json"]
+  section = ["html"]
+
+[markup.goldmark.renderer]
+  unsafe = false
+[markup.tableOfContents]
+  startLevel = 2
+  endLevel = 2
+  ordered = true
+
+[permalinks.page]
+  posts = "/:contentbasename/"
+
+[params]
+  contact = "/kontakt"

@@ -1,0 +1,28 @@
+<ol class="rack">
+  {{- range $i, $p := . }}
+  <li>
+    <a class="rack-einheit" href="{{ $p.RelPermalink }}">
+      <span class="rack-ohr" aria-hidden="true"><span class="led"></span><span class="rack-nr">U{{ printf "%02d" (add $i 1) }}</span></span>
+      <span class="rack-inhalt">
+        {{ partial "meta.html" $p }}
+        <span class="rack-titel">{{ $p.Title }}</span>
+        <span class="rack-teaser">{{ $p.Summary | plainify }}</span>
+        <span class="rack-mehr">{{ T "readMore" }} →</span>
+      </span>
+      <span class="rack-bild" aria-hidden="true">
+        {{- with or $p.Params.image $p.Params.logo }}
+        {{- with $p.Resources.Get . }}
+        {{- if eq .MediaType.SubType "svg" }}
+        <img class="rack-logo" src="{{ .RelPermalink }}" alt="" loading="lazy">
+        {{- else }}
+        {{- $thumb := .Fill "480x270 webp" }}
+        <img src="{{ $thumb.RelPermalink }}" alt="" width="{{ $thumb.Width }}" height="{{ $thumb.Height }}" loading="lazy">
+        {{- end }}
+        {{- end }}
+        {{- end }}
+      </span>
+      <span class="rack-ohr" aria-hidden="true"></span>
+    </a>
+  </li>
+  {{- end }}
+</ol>

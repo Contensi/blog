@@ -1,0 +1,35 @@
+daniel-heitmann:
+  name: "Daniel Heitmann"
+  photo: img/team/daniel-heitmann.jpg
+  role:
+    de: "Enterprise Architekt"
+    en: "Enterprise Architect"
+guido-serra:
+  name: "Guido Serra"
+  photo: img/team/guido-sierra.jpg
+  role:
+    de: "DevOps TeamLead"
+    en: "DevOps Team Lead"
+jens-peter-reincke:
+  name: "Jens-Peter Reincke"
+  photo: img/team/jens-peter-reincke.jpg
+  role:
+    de: "Customer Success Manager"
+    en: "Customer Success Manager"
+knut-ahlers:
+  name: "Knut Ahlers"
+  role:
+    de: "Senior DevOps Engineer"
+    en: "Senior DevOps Engineer"
+moataz-elmasry:
+  name: "Moataz Elmasry"
+  photo: img/team/moataz-elmasry.jpg
+  role:
+    de: "Geschäftsführer und Enterprise Architekt"
+    en: "Managing Director and Enterprise Architect"
+sebastian-lehninger:
+  name: "Sebastian Lehninger"
+  photo: img/team/sebastian-lehninger.jpg
+  role:
+    de: "Cloud Consultant"
+    en: "Cloud Consultant"

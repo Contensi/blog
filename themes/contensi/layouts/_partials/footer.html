@@ -1,0 +1,69 @@
+{{- $nav := index hugo.Data.nav site.Language.Lang -}}
+<footer class="site">
+  <div class="wrap-wide">
+    <div class="foot-brand">
+      <div>
+        <img class="foot-logo" src="{{ "img/contensi-logo.png" | relURL }}" alt="Contensi" width="300" height="51" loading="lazy">
+        <p>Contensi Software GmbH<br>Ulmenweg 2 · 34516 Vöhl</p>
+        <p><a href="tel:+4956357483999">+49 5635-7483999</a><br>
+           <a href="mailto:projekt@contensi.com">projekt@contensi.com</a></p>
+      </div>
+      <div class="social">
+        <a href="https://www.linkedin.com/company/contensi/" target="_blank" rel="noopener"
+           aria-label="{{ $nav.footer.linkedinLabel }}">
+          <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="currentColor">
+            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+          </svg>
+        </a>
+        <button type="button" class="slack-anfrage" data-open="slackDialog"
+                aria-label="{{ $nav.footer.slackLabel }}">
+          <svg viewBox="0 0 448 512" width="20" height="20" aria-hidden="true" fill="currentColor">
+            <path d="M94.12 315.1c0 25.9-21.16 47.06-47.06 47.06S0 341 0 315.1c0-25.9 21.16-47.06 47.06-47.06h47.06v47.06zm23.72 0c0-25.9 21.16-47.06 47.06-47.06s47.06 21.16 47.06 47.06v117.85c0 25.9-21.16 47.06-47.06 47.06s-47.06-21.16-47.06-47.06V315.1zm47.06-188.98c-25.9 0-47.06-21.16-47.06-47.06S138.98 32 164.88 32s47.06 21.16 47.06 47.06v47.06h-47.06zm0 23.72c25.9 0 47.06 21.16 47.06 47.06s-21.16 47.06-47.06 47.06H47.06C21.16 244.94 0 223.78 0 197.88s21.16-47.06 47.06-47.06h117.84zm188.98 47.06c0-25.9 21.16-47.06 47.06-47.06 25.9 0 47.06 21.16 47.06 47.06s-21.16 47.06-47.06 47.06h-47.06v-47.06zm-23.72 0c0 25.9-21.16 47.06-47.06 47.06-25.9 0-47.06-21.16-47.06-47.06V78.94c0-25.9 21.16-47.06 47.06-47.06 25.9 0 47.06 21.16 47.06 47.06v117.84zM283.12 315.1c25.9 0 47.06 21.16 47.06 47.06 0 25.9-21.16 47.06-47.06 47.06-25.9 0-47.06-21.16-47.06-47.06v-47.06h47.06zm0-23.72c-25.9 0-47.06-21.16-47.06-47.06 0-25.9 21.16-47.06 47.06-47.06h117.84c25.9 0 47.06 21.16 47.06 47.06 0 25.9-21.16 47.06-47.06 47.06H283.12z"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+    <nav class="foot-nav" aria-label="{{ $nav.footer.legalLabel }}">
+      {{- range $nav.footer.links }}
+      <a href="{{ .url }}">{{ .label }}</a>
+      {{- end }}
+    </nav>
+    <p>© {{ now.Year }} Contensi Software GmbH · Vöhl · {{ $nav.footer.claim }}</p>
+    <p class="legal">{{ $nav.footer.legal }}</p>
+  </div>
+</footer>
+
+<dialog id="slackDialog" class="dlg">
+  <form id="slackForm">
+    <button type="button" class="dlg-close" id="slackSchliessen" aria-label="{{ T "close" }}">&times;</button>
+    <h3>{{ T "slackTitle" }}</h3>
+    <p class="dlg-sub">{{ T "slackSub" }}</p>
+    <div class="fld-zeile">
+      <div class="fld">
+        <label for="slackName">{{ T "slackName" }}</label>
+        <input type="text" id="slackName" name="name" required placeholder="{{ T "slackNamePh" }}">
+      </div>
+      <div class="fld">
+        <label for="slackFirma">{{ T "slackCompany" }}</label>
+        <input type="text" id="slackFirma" name="firma" required placeholder="{{ T "slackCompanyPh" }}">
+      </div>
+    </div>
+    <div class="fld-zeile">
+      <div class="fld">
+        <label for="slackEmail">{{ T "slackEmail" }}</label>
+        <input type="email" id="slackEmail" name="email" required placeholder="{{ T "slackEmailPh" }}">
+      </div>
+      <div class="fld">
+        <label for="slackTelefon">{{ T "slackPhone" }}</label>
+        <input type="tel" id="slackTelefon" name="telefon" placeholder="{{ T "slackPhonePh" }}">
+      </div>
+    </div>
+    <div class="fld">
+      <label for="slackAnliegen">{{ T "slackTopic" }}</label>
+      <textarea id="slackAnliegen" name="anliegen" required rows="3"
+                placeholder="{{ T "slackTopicPh" }}"></textarea>
+    </div>
+    <button type="button" class="btn" id="slackSenden">{{ T "slackSend" }}</button>
+    <p class="dlg-sub dlg-hinweis">{{ T "slackHint" }}</p>
+  </form>
+</dialog>

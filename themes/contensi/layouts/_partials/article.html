@@ -1,0 +1,34 @@
+{{- $featured := .featured -}}
+{{- with .page -}}
+<article class="beitrag{{ if $featured }} beitrag-neu{{ end }}">
+  <header class="beitrag-kopf">
+    {{- if $featured }}
+    <p class="kennung"><span class="led" aria-hidden="true"></span>{{ T "latest" }}</p>
+    {{- end }}
+    {{ partial "meta.html" . }}
+    {{- if $featured }}
+    <h1><a href="{{ .RelPermalink }}">{{ .Title }}</a></h1>
+    {{- else }}
+    <h1>{{ .Title }}</h1>
+    {{- end }}
+  </header>
+  <div class="beitrag-raster">
+    {{- if gt (len (findRE `<li>` .TableOfContents)) 1 }}
+    <nav class="inhalt" aria-label="{{ T "contents" }}">
+      <p class="inhalt-titel">{{ T "contents" }}</p>
+      {{ .TableOfContents }}
+    </nav>
+    {{- end }}
+    <div class="beitrag-text">
+      {{ .Content }}
+      {{- with .Params.sources }}
+      <aside class="quellen">
+        <p class="quellen-titel">{{ T "sources" }}</p>
+        <p>{{ . }}</p>
+      </aside>
+      {{- end }}
+    </div>
+  </div>
+  {{ partial "contact.html" . }}
+</article>
+{{- end -}}

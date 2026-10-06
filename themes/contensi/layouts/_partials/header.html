@@ -1,0 +1,48 @@
+{{- $nav := index hugo.Data.nav site.Language.Lang -}}
+{{- $page := . -}}
+<header class="site" id="kopf">
+  <div class="nav-bar">
+    <a href="{{ $nav.home.url }}" class="logo-chip" aria-label="{{ $nav.logoLabel }}">
+      <img class="logo" src="{{ "img/contensi-logo.png" | relURL }}" alt="Contensi" width="300" height="51">
+    </a>
+    <nav class="nav-links" id="navLinks" aria-label="{{ $nav.navLabel }}">
+      <a href="{{ $nav.home.url }}">{{ $nav.home.label }}</a>
+      {{- range $i, $group := $nav.groups }}
+      <div class="nav-gruppe">
+          <button type="button" class="nav-gruppen-knopf{{ if $group.current }} aktuell{{ end }}" aria-haspopup="true" aria-expanded="false" aria-controls="navDropdown{{ $i }}">{{ $group.label }}</button>
+          <div class="nav-dropdown" id="navDropdown{{ $i }}" role="menu">
+          {{- range $group.items }}
+          {{- if .blog }}
+          <a href="{{ site.Home.RelPermalink }}" role="menuitem"{{ if $page.IsHome }} aria-current="page"{{ end }}>{{ .label }}</a>
+          {{- else }}
+          <a href="{{ .url }}" role="menuitem">{{ .label }}</a>
+          {{- end }}
+          {{- end }}
+          </div>
+        </div>
+      {{- end }}
+      <a class="nav-cta" href="{{ $nav.contact.url }}">{{ $nav.contact.label }}</a>
+    </nav>
+    <div class="nav-werkzeuge">
+    <button type="button" class="such-knopf" id="sucheOeffnen" aria-label="{{ $nav.searchLabel }}">
+      <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor"
+           stroke-width="2" stroke-linecap="round">
+        <circle cx="11" cy="11" r="7"></circle>
+        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+      </svg>
+    </button>
+      <div class="sprachumschalter">
+      {{- range hugo.Sites -}}
+        {{- $lang := .Language.Lang -}}
+        {{- if eq $lang site.Language.Lang -}}
+        <span class="aktiv" lang="{{ $lang }}" hreflang="{{ $lang }}" aria-current="true">{{ .Language.Label }}</span>
+        {{- else -}}
+        {{- $target := index (where $page.Translations "Language.Lang" $lang) 0 | default .Home -}}
+        <a href="{{ $target.RelPermalink }}" lang="{{ $lang }}" hreflang="{{ $lang }}">{{ .Language.Label }}</a>
+        {{- end -}}
+      {{- end -}}
+      </div>
+      <button class="nav-toggle" type="button" id="navToggle" aria-expanded="false" aria-controls="navLinks">{{ $nav.menuLabel }}</button>
+    </div>
+  </div>
+</header>

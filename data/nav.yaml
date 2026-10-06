@@ -1,0 +1,91 @@
+de:
+  home: { label: "Home", url: "/" }
+  logoLabel: "Contensi – zur Startseite"
+  navLabel: "Hauptnavigation"
+  menuLabel: "Menü"
+  searchLabel: "Blog durchsuchen"
+  contact: { label: "Kontakt", url: "/kontakt" }
+  groups:
+    - label: "Portfolio"
+      items:
+        - { label: "Portfolio-Übersicht", url: "/portfolio" }
+        - { label: "Big Data & KI", url: "/portfolio#big-data-ki" }
+        - { label: "Cloud", url: "/cloud" }
+        - { label: "Cloud Exit Strategie", url: "/cloud-exit-strategie" }
+        - { label: "Container-Plattform", url: "/portfolio#container-plattform" }
+        - { label: "IT-Service Management", url: "/portfolio#it-service-management" }
+        - { label: "Managed Services", url: "/managed-services" }
+        - { label: "Modern Workplace", url: "/portfolio#modern-workplace" }
+        - { label: "Private AI", url: "/private-ai" }
+        - { label: "Proxmox", url: "/proxmox" }
+        - { label: "Prozess-Orchestrierung", url: "/portfolio#prozess-orchestrierung" }
+        - { label: "Storage", url: "/storage" }
+    - label: "Unternehmen"
+      current: true
+      items:
+        - { label: "Blog", blog: true }
+        - { label: "Karriere", url: "/karriere" }
+        - { label: "Unser Team", url: "/team" }
+        - { label: "Unsere Kunden", url: "/kunden" }
+        - { label: "Unsere Partner", url: "/partner" }
+    - label: "Rechtliches"
+      items:
+        - { label: "AGB", url: "/agb" }
+        - { label: "Datenschutz", url: "/datenschutz" }
+        - { label: "Impressum", url: "/impressum" }
+        - { label: "KI-Transparenz", url: "/kitransparenz" }
+  footer:
+    linkedinLabel: "Contensi auf LinkedIn"
+    slackLabel: "Zugang zum Slack-Channel anfragen"
+    legalLabel: "Rechtliche Hinweise"
+    links:
+      - { label: "Datenschutz", url: "/datenschutz" }
+      - { label: "Impressum", url: "/impressum" }
+      - { label: "AGBs", url: "/agb" }
+      - { label: "KI-Transparenz", url: "/kitransparenz" }
+    claim: "IT. Menschen. Lösungen."
+    legal: "Alle genannten Produkt- und Firmennamen sind Marken oder eingetragene Marken ihrer jeweiligen Inhaber und werden hier ausschließlich zu Beschreibungszwecken genannt. Es besteht keine geschäftliche Verbindung, sofern nicht ausdrücklich angegeben."
+en:
+  home: { label: "Home", url: "/index-en" }
+  logoLabel: "Contensi – go to homepage"
+  navLabel: "Main navigation"
+  menuLabel: "Menu"
+  searchLabel: "Search the blog"
+  contact: { label: "Contact", url: "/kontakt-en" }
+  groups:
+    - label: "Portfolio"
+      items:
+        - { label: "Portfolio Overview", url: "/portfolio-en" }
+        - { label: "Big Data & AI", url: "/portfolio-en#big-data-ki" }
+        - { label: "Cloud", url: "/cloud-en" }
+        - { label: "Container Platform", url: "/portfolio-en#container-plattform" }
+        - { label: "IT Service Management", url: "/portfolio-en#it-service-management" }
+        - { label: "Managed Services", url: "/managed-services-en" }
+        - { label: "Modern Workplace", url: "/portfolio-en#modern-workplace" }
+        - { label: "Private AI", url: "/private-ai-en" }
+        - { label: "Process Orchestration", url: "/portfolio-en#prozess-orchestrierung" }
+        - { label: "Proxmox", url: "/proxmox-en" }
+        - { label: "Storage", url: "/storage-en" }
+    - label: "Company"
+      current: true
+      items:
+        - { label: "Blog", blog: true }
+        - { label: "Careers", url: "/karriere-en" }
+        - { label: "Our Clients", url: "/kunden-en" }
+        - { label: "Our Partners", url: "/partner-en" }
+        - { label: "Our Team", url: "/team-en" }
+    - label: "Legal"
+      items:
+        - { label: "Legal Notice", url: "/impressum-en" }
+        - { label: "Privacy Policy", url: "/datenschutz-en" }
+        - { label: "Terms & Conditions", url: "/agb-en" }
+  footer:
+    linkedinLabel: "Contensi on LinkedIn"
+    slackLabel: "Request access to our Slack channel"
+    legalLabel: "Legal notices"
+    links:
+      - { label: "Privacy Policy", url: "/datenschutz-en" }
+      - { label: "Legal Notice", url: "/impressum-en" }
+      - { label: "Terms & Conditions", url: "/agb-en" }
+    claim: "IT. People. Solutions."
+    legal: "All product and company names mentioned are trademarks or registered trademarks of their respective owners and are used here for descriptive purposes only. No business relationship is implied unless explicitly stated."

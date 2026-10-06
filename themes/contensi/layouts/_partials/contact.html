@@ -1,0 +1,23 @@
+{{- $nav := index hugo.Data.nav site.Language.Lang -}}
+{{- with index hugo.Data.contacts .Params.contact -}}
+<section class="kontakt-panel">
+  <div class="kontakt-text">
+    <p class="kennung">{{ T "nextStep" }}</p>
+    <h2>{{ T "ctaTitle" }}</h2>
+    <p>{{ T "ctaText" }}</p>
+    <a class="btn" href="{{ $nav.contact.url }}">{{ T "ctaButton" }}</a>
+  </div>
+  <figure class="kontakt-person">
+    {{- with .photo }}
+    <img src="{{ . | relURL }}" alt="" width="96" height="96" loading="lazy">
+    {{- else }}
+    <span class="monogramm" aria-hidden="true">{{ range split .name " " }}{{ substr . 0 1 }}{{ end }}</span>
+    {{- end }}
+    <figcaption>
+      <span class="kontakt-rolle">{{ T "contact" }}</span>
+      <span class="kontakt-name">{{ .name }}</span>
+      <span class="kontakt-rolle">{{ index .role site.Language.Lang }}</span>
+    </figcaption>
+  </figure>
+</section>
+{{- end -}}

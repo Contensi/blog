@@ -1,0 +1,5 @@
+{{- $pages := slice -}}
+{{- range (where site.RegularPages "Section" "posts").ByDate.Reverse -}}
+{{- $pages = $pages | append (dict "url" .RelPermalink "titel" .Title "text" (printf "%s %s" .Summary .Plain | plainify | htmlUnescape)) -}}
+{{- end -}}
+{{- $pages | jsonify -}}

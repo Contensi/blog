@@ -1,0 +1,12 @@
+{{ define "main" }}
+{{- $posts := (where site.RegularPages "Section" "posts").ByDate.Reverse -}}
+{{- with index $posts 0 }}
+{{ partial "article.html" (dict "page" . "featured" true) }}
+{{- end }}
+{{- with after 1 $posts }}
+<section class="archiv" aria-labelledby="archivTitel">
+  <h2 class="archiv-titel" id="archivTitel">{{ T "morePosts" }}</h2>
+  {{ partial "rack.html" . }}
+</section>
+{{- end }}
+{{ end }}

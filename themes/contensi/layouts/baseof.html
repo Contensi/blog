@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="{{ site.Language.Lang }}">
+<head>
+{{ partial "head.html" . }}
+</head>
+<body class="p-blog">
+{{ partial "header.html" . }}
+<div class="wrap-wide">
+<main class="blog">
+{{ block "main" . }}{{ end }}
+</main>
+</div>
+{{ partial "footer.html" . }}
+{{ partial "search-dialog.html" . }}
+{{ $js := resources.Get "js/blog.js" | js.Build (dict "minify" true) | fingerprint }}
+<script src="{{ $js.RelPermalink }}" integrity="{{ $js.Data.Integrity }}" defer></script>
+</body>
+</html>

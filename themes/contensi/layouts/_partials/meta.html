@@ -1,0 +1,5 @@
+<p class="meta">
+  <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006-01-02" }}</time>
+  <span>{{ .Params.author }}</span>
+  <span>{{ T "readingTime" (dict "Count" .ReadingTime) }}</span>
+</p>
