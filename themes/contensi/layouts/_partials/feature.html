@@ -2,9 +2,16 @@
   <a class="aufmacher-link" href="{{ .RelPermalink }}">
     <span class="aufmacher-bild" aria-hidden="true">
       {{- with .Params.image }}{{ with $.Resources.Get . }}
-      {{- $s := .Process "fill 640x360 webp q82" }}
-      {{- $l := .Process "fill 1280x720 webp q82" }}
-      <img src="{{ $l.RelPermalink }}" srcset="{{ $s.RelPermalink }} 640w, {{ $l.RelPermalink }} 1280w" sizes="(min-width: 900px) 48vw, 100vw" alt="" width="1280" height="720">
+      {{- $src := . }}
+      {{- $set := slice }}
+      {{- range slice 800 1200 }}
+      {{- if lt . $src.Width }}
+      {{- $img := $src.Process (printf "resize %dx webp q90" .) }}
+      {{- $set = $set | append (printf "%s %dw" $img.RelPermalink $img.Width) }}
+      {{- end }}
+      {{- end }}
+      {{- $set = $set | append (printf "%s %dw" $src.RelPermalink $src.Width) }}
+      <img src="{{ $src.RelPermalink }}" srcset="{{ delimit $set ", " }}" sizes="(min-width: 1360px) 680px, (min-width: 900px) 50vw, 100vw" alt="" width="{{ $src.Width }}" height="{{ $src.Height }}">
       {{- end }}{{ else }}
       {{ partial "vendor-logo.html" . }}
       {{- end }}
