@@ -14,8 +14,9 @@ Danach http://localhost:1313/blog/ öffnen. Unter `http://localhost:1313/` selbs
 
 - Jeder Pull Request baut die Seite und prüft alle internen Links und Dateien (`scripts/check_links.py`). Das ist der Check `build`.
 - Nach dem Merge in `main` veröffentlicht GitHub Actions die Seite auf GitHub Pages unter `contensi.github.io/blog/`.
-- Der Cloudflare Worker in `worker/` beantwortet `contensi.com/blog/*` und holt denselben Pfad von GitHub Pages. Besucher bleiben dadurch auf contensi.com. Der Workflow `worker` deployt ihn, wenn sich Dateien in `worker/` ändern.
-- Cloudflare-Weiterleitungen schicken die alten Adressen (`/blog-<slug>`, `/blog-en`) auf die neuen.
+- Die Hauptseite contensi.com läuft auf OpenAI ChatGPT Sites. Sie leitet alle Anfragen unter `/blog/` an GitHub Pages weiter und gibt die Antwort unverändert zurück. Besucher bleiben dadurch auf contensi.com.
+- Dieselbe Weiterleitung in der Hauptseite schickt die alten Adressen (`/blog`, `/blog-en`, `/blog-<slug>`, `/blog-<slug>-en`, jeweils auch mit `.html`) per 301 auf die neuen.
+- Cloudflare-Regeln und Workers aus der Zone contensi.com greifen auf `contensi.com` nicht: ChatGPT Sites läuft selbst auf Cloudflare und übernimmt die Anfragen vorher. Änderungen an Weiterleitung oder Pfaden gehören deshalb in die Hauptseite, nicht in Cloudflare.
 
 ## Kopf- und Fußzeile
 

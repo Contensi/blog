@@ -1,6 +1,6 @@
 # Contensi Blog
 
-Hier liegen alle Beiträge von [contensi.com/blog](https://contensi.com/blog/). Jeder Beitrag ist eine Textdatei. Wer einen Beitrag ändert oder neu anlegt, schlägt das als **Pull Request** vor (kurz PR, ein Änderungsvorschlag). Nach der Freigabe erscheint der Beitrag nach etwa zwei Minuten online.
+Hier liegen alle Beiträge von [contensi.com/blog](https://contensi.com/blog/). Jeder Beitrag ist eine Textdatei. Wer einen Beitrag ändert oder neu anlegt, schlägt das als **Pull Request** vor (kurz PR, ein Änderungsvorschlag). Nach der Freigabe erscheint der Beitrag nach wenigen Minuten online.
 
 Git-Kenntnisse brauchst du nicht. Am einfachsten lässt du deinen KI-Agenten die Arbeit machen.
 
@@ -28,7 +28,7 @@ Danach:
 
 1. Der Agent öffnet den PR. GitHub prüft automatisch, ob die Seite fehlerfrei baut (Check **build**).
 2. Eine zweite Person liest den PR und gibt ihn frei.
-3. Nach dem Merge ist der Beitrag nach etwa zwei Minuten online.
+3. Nach dem Merge ist der Beitrag nach wenigen Minuten online.
 
 ## Format eines Beitrags
 
