@@ -1,59 +1,100 @@
-# Contensi blog
+# Contensi Blog
 
-Source of [contensi.com/blog](https://contensi.com/blog/). Posts are Markdown files with Hugo front matter. German is the default language at `/blog/`, English is at `/blog/en/`.
+Hier liegen alle Beiträge von [contensi.com/blog](https://contensi.com/blog/). Jeder Beitrag ist eine Textdatei. Wer einen Beitrag ändert oder neu anlegt, schlägt das als **Pull Request** vor (kurz PR, ein Änderungsvorschlag). Nach der Freigabe erscheint der Beitrag nach etwa zwei Minuten online.
 
-## Write a post
+Git-Kenntnisse brauchst du nicht. Am einfachsten lässt du deinen KI-Agenten die Arbeit machen.
 
-```bash
-hugo new content posts/my-topic/index.de.md
+## Einmalig: Zugang einrichten
+
+1. Lass dir vom Admin Schreibrechte auf dieses Repository geben.
+2. Erstelle auf GitHub einen Zugangsschlüssel (Token), der nur für dieses Repository gilt:
+   - Rechts oben auf dein Profilbild → **Settings** → **Developer settings** → **Personal access tokens** → **Fine-grained tokens** → **Generate new token**
+   - **Resource owner:** Contensi
+   - **Expiration:** 90 Tage
+   - **Repository access:** Only select repositories → `Contensi/blog`
+   - **Permissions:** Contents → *Read and write*, Pull requests → *Read and write*
+   - **Generate token**, dann den Token kopieren. GitHub zeigt ihn nur einmal an.
+3. Übergib den Token deinem KI-Agenten, zum Beispiel als Umgebungsvariable `GH_TOKEN`. Schreib ihn nie in eine Datei im Repository und nie in einen Beitrag.
+
+Läuft der Token ab, erstellst du einfach einen neuen.
+
+## Einen Beitrag veröffentlichen
+
+Gib deinem KI-Agenten den Text (oder Stichpunkte) und diesen Auftrag:
+
+> Lege im Repository Contensi/blog einen neuen Blogbeitrag an. Halte dich an das Format in der README. Erstelle die deutsche und die englische Fassung, arbeite auf einem neuen Branch und öffne einen Pull Request gegen `main`.
+
+Danach:
+
+1. Der Agent öffnet den PR. GitHub prüft automatisch, ob die Seite fehlerfrei baut (Check **build**).
+2. Eine zweite Person liest den PR und gibt ihn frei.
+3. Nach dem Merge ist der Beitrag nach etwa zwei Minuten online.
+
+## Format eines Beitrags
+
+Jeder Beitrag ist ein eigener Ordner in `content/posts/`. Der Ordnername ist die Adresse des Beitrags.
+
+```
+content/posts/proxmox-backup-2026/
+├── index.de.md        deutscher Text
+├── index.en.md        englischer Text
+└── titelbild.jpg      optional: Bilder des Beitrags
 ```
 
-Add the English version as `index.en.md` in the same folder. Images go into that folder too. The folder name is the URL: `/blog/my-topic/` and `/blog/en/my-topic/`.
+Daraus werden `contensi.com/blog/proxmox-backup-2026/` und `contensi.com/blog/en/proxmox-backup-2026/`.
 
-Front matter:
+**Ordnername:** nur Kleinbuchstaben, Ziffern und Bindestriche, keine Umlaute. Also `digitale-souveraenitaet-2026`, nicht `Digitale Souveränität`.
 
-| Field | Purpose |
-|---|---|
-| `title` | Headline |
-| `date` | Publication date, `YYYY-MM-DD`. The newest post is shown in full on the blog's start page. |
-| `author` | Author name |
-| `description` | Search engine description |
-| `summary` | Teaser in the post list |
-| `contact` | Contact person in the call to action, a key from `data/contacts.yaml` |
-| `image` / `logo` | Optional picture or logo file in the post folder, shown in the post list |
-| `sources` | Optional sources line under the post |
-| `draft` | `true` keeps the post unpublished |
+**Kopfbereich:** Jede Datei beginnt mit einem Block zwischen zwei `---`-Zeilen:
 
-An image with a caption: `{{< figure src="photo.jpg" alt="…" caption="…" >}}`.
+```markdown
+---
+title: "Proxmox Backup Server 4: Was sich für Backups ändert"
+date: 2026-10-15
+author: "Nicola Anastassia"
+description: "Ein bis zwei Sätze für Suchmaschinen."
+summary: "Ein bis zwei Sätze als Vorschau in der Beitragsliste."
+contact: daniel-heitmann
+logo: proxmox-logo.svg
+sources: "Proxmox Server Solutions GmbH, Release Notes (Oktober 2026)."
+---
 
-## Preview
+Der erste Absatz führt ins Thema ein.
 
-```bash
-hugo server --baseURL http://localhost:1313/blog/ --appendPort=false
+## Erste Zwischenüberschrift
+
+Text …
 ```
 
-Then open http://localhost:1313/blog/.
+| Feld | Pflicht | Bedeutung |
+|---|---|---|
+| `title` | ja | Überschrift des Beitrags |
+| `date` | ja | Datum im Format `JJJJ-MM-TT`. Heute oder früher: Beiträge mit Datum in der Zukunft erscheinen nicht. |
+| `author` | ja | Name der Autorin oder des Autors |
+| `description` | ja | Text für Google und Vorschauen beim Teilen |
+| `summary` | ja | Vorschautext auf der Blog-Startseite |
+| `contact` | ja | Ansprechpartner im Kasten unter dem Beitrag: `daniel-heitmann`, `guido-serra`, `jens-peter-reincke`, `knut-ahlers`, `moataz-elmasry` oder `sebastian-lehninger` |
+| `image` | nein | Foto im Ordner, das auf der Startseite erscheint, solange der Beitrag der neueste ist |
+| `logo` | nein | Herstellerlogo im Ordner (am besten SVG), erscheint neben dem Beitrag in der Liste |
+| `sources` | nein | Quellenangabe unter dem Beitrag |
+| `draft` | nein | `true` hält den Beitrag unveröffentlicht |
 
-## Publish
+**Text:** normales Markdown.
 
-Open a pull request into `main`. The `build` check builds the site and verifies every internal link. After the merge, GitHub Actions publishes the site to GitHub Pages.
+- Zwischenüberschriften mit `## ` (zwei Rauten). Sie werden automatisch nummeriert und bilden das Inhaltsverzeichnis. Keine `# `-Überschrift im Text, der Titel kommt aus `title`.
+- Aufzählungen mit `- `, Hervorhebungen mit `**fett**`.
+- Links auf die Hauptseite ohne Domain: `[Proxmox-Seite](/proxmox)`, im englischen Text `[Proxmox page](/proxmox-en)`.
+- Bild mit Bildunterschrift:
+  `{{< figure src="titelbild.jpg" alt="Was auf dem Bild zu sehen ist" caption="Bildunterschrift" >}}`
 
-## How it is served
+**Deutsch und Englisch:** Beide Fassungen haben dieselbe Struktur, also dieselben Zwischenüberschriften, Aufzählungen, Bilder und Felder im Kopfbereich. Nur der Text ist übersetzt.
 
-- GitHub Pages hosts the built site at `contensi.github.io/blog/`.
-- The Cloudflare Worker in `worker/` answers `contensi.com/blog/*` and fetches the same path from GitHub Pages, so visitors stay on contensi.com. It is deployed by the `worker` workflow when files in `worker/` change.
-- Cloudflare redirect rules send the old URLs (`/blog-<slug>`, `/blog-en`) to the new ones.
+## Vorher prüfen
 
-## Header and footer
+- [ ] Ordnername in Kleinbuchstaben mit Bindestrichen
+- [ ] `index.de.md` und `index.en.md` vorhanden, gleich aufgebaut
+- [ ] alle Pflichtfelder ausgefüllt, Datum nicht in der Zukunft
+- [ ] Bilder und Logos liegen im Beitragsordner
+- [ ] Check **build** im PR ist grün
 
-The header and footer copy the main site's markup and styles, so the blog looks like part of contensi.com. When the main site's header changes:
-
-```bash
-python3 scripts/vendor_site_css.py
-```
-
-This regenerates `themes/contensi/assets/css/site-chrome.css` and the fonts and logo from the live site. Navigation entries are in `data/nav.yaml`.
-
-## Fonts
-
-Work Sans and Comfortaa come from the main site. Commit Mono is licensed under the SIL Open Font License, see `themes/contensi/static/fonts/commit-mono-LICENSE.txt`.
+Technische Details zu Theme, Build und Hosting stehen in [docs/TECHNIK.md](docs/TECHNIK.md).
