@@ -2,7 +2,7 @@
   {{- range . }}
   <li>
     <a class="eintrag" href="{{ .RelPermalink }}">
-      <time class="eintrag-datum" datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006-01-02" }}</time>
+      <time class="eintrag-datum" datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date | time.Format (T "dateFormat") }}</time>
       <span class="eintrag-text">
         <span class="eintrag-titel">{{ .Title }}</span>
         <span class="eintrag-teaser">{{ .Summary | plainify }}</span>

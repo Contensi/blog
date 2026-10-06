@@ -1,4 +1,4 @@
 <p class="meta">
-  <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006-01-02" }}</time>
+  <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date | time.Format (T "dateFormat") }}</time>
   <span>{{ .Params.author }}</span>
 </p>
